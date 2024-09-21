@@ -11,9 +11,11 @@ public class VoiceDetection : MonoBehaviour
     Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
     void Start()
     {
-        keywords.Add("Baño", CambiarBaño);
-        keywords.Add("Cocina", CambiarCocina);
-        keywords.Add("Habitacion", CambiarHabitacion);
+        keywords.Add("Bañar", Bañar);
+        keywords.Add("Alimentar", Comer);
+        keywords.Add("Dormir", Dormir);
+        keywords.Add("Jugar", Jugar);
+        keywords.Add("Despertar", Despertar);
 
         keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += KeywordRecognizer_OnPhraseRecognized;
@@ -29,18 +31,31 @@ public class VoiceDetection : MonoBehaviour
             keywordAction.Invoke();
         }
     }
-    private void CambiarBaño()
+    private void Bañar()
     {
-        Debug.Log("Baño");
+        Debug.Log("Se baña");
+        GetComponent<Cleaning>().AseoMimitchi(10);
     }
 
-    private void CambiarCocina()
+    private void Comer()
     {
-        Debug.Log("Cocina");
+        Debug.Log("Come");
+        GetComponent<Feeding>().AlimentarMimitchi(10);
     }
 
-    private void CambiarHabitacion()
+    private void Dormir()
     {
-        Debug.Log("Habitacion");
+        Debug.Log("Duerme");
+        GetComponent<Sleeping>().DescansarMimitchi(10);
+    }
+
+    private void Jugar()
+    {
+        Debug.Log("Juega");
+    }
+
+    private void Despertar()
+    {
+        Debug.Log("Se despierta");
     }
 }
