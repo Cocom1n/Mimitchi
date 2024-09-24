@@ -32,7 +32,7 @@ public class Cleaning : MonoBehaviour
         }
     }
 
-    public void AseoMimitchi (float bañar)
+    public void AseoMimitchi (float baÃ±ar)
     {
         if (cantAseo < 100 && cantAseo > 90)
         {
@@ -40,7 +40,7 @@ public class Cleaning : MonoBehaviour
         }
         if (cantAseo <= 90)
         {
-            cantAseo += bañar;
+            cantAseo += baÃ±ar;
         }
     }
 
