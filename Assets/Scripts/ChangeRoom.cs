@@ -6,6 +6,7 @@ public class ChangeRoom : MonoBehaviour
 {
     public List<GameObject> fondos = new List<GameObject>();
     public int indice;
+    public Animaciones anim;
 
     void Start() {
         ActualizarFondo();
@@ -26,5 +27,6 @@ public class ChangeRoom : MonoBehaviour
 
     public void ActualizarFondo(){
         fondos[indice].SetActive(true);
+        anim.Reset();
     }
 }

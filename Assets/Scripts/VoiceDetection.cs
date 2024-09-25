@@ -39,6 +39,7 @@ public class VoiceDetection : MonoBehaviour
         }
         else
         {
+            GetComponent<Animaciones>().Animar(1);
             Debug.Log("Se baña");
             GetComponent<Cleaning>().AseoMimitchi(10);
         }
@@ -53,6 +54,7 @@ public class VoiceDetection : MonoBehaviour
         }
         else
         {
+            GetComponent<Animaciones>().Animar(2);
             Debug.Log("Come");
             GetComponent<Feeding>().AlimentarMimitchi(10);
         }
@@ -67,6 +69,7 @@ public class VoiceDetection : MonoBehaviour
         }
         else
         {
+            GetComponent<Animaciones>().Animar(3);
             Debug.Log("Duerme");
             GetComponent<Sleeping>().DescansarMimitchi(10);
         }
@@ -81,6 +84,7 @@ public class VoiceDetection : MonoBehaviour
         }
         else
         {
+            GetComponent<Animaciones>().Animar(4);
             Debug.Log("Juega");
         }
 
@@ -94,6 +98,7 @@ public class VoiceDetection : MonoBehaviour
         }
         else
         {
+            GetComponent<Animaciones>().Animar(5);
             Debug.Log("Se despierta");
         }
 

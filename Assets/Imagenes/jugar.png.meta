@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5df4cda06fcc9354fbde8a359c0dfe92
+guid: 6ed86fa8f70322c44b8e7f4bdf18be57
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 73
+  spritePixelsToUnits: 70
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: espuma_20
+      name: jugar_0
       rect:
         serializedVersion: 2
-        x: 3611
+        x: 0
         y: 0
-        width: 703
-        height: 488
+        width: 649
+        height: 593
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 432b2ed621ca5634aadc5c054ec8ab59
-      internalID: -1892271520
+      spriteID: 240e1e125bf53524f82029e4e00242b0
+      internalID: 2052052274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: espuma_21
+      name: jugar_1
       rect:
         serializedVersion: 2
-        x: 8
+        x: 649
         y: 0
-        width: 703
-        height: 488
+        width: 649
+        height: 593
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3db1345e19a447c4d822595a2658c526
-      internalID: -1205389723
+      spriteID: fa34fe9948d7f4e439f30ede671c67ac
+      internalID: 109086718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: espuma_26
+      name: jugar_2
       rect:
         serializedVersion: 2
-        x: 720
+        x: 1298
         y: 0
-        width: 703
-        height: 488
+        width: 649
+        height: 593
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f09357575d17e2445b59140308668460
-      internalID: 761368623
+      spriteID: 98586d54a55fd0648979b88fd73331a3
+      internalID: -1635695934
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: espuma_27
+      name: jugar_3
       rect:
         serializedVersion: 2
-        x: 1436
+        x: 1947
         y: 0
-        width: 703
-        height: 488
+        width: 649
+        height: 593
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c5dbe160f89ada4aaf92861ded555c3
-      internalID: 1750019327
+      spriteID: 7fbe37087abdea64ab827878727be2c6
+      internalID: -611764375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: espuma_28
+      name: jugar_4
       rect:
         serializedVersion: 2
-        x: 2154
+        x: 2596
         y: 0
-        width: 703
-        height: 488
+        width: 649
+        height: 593
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6c3580f712712646a83ab5e75cc0628
-      internalID: -494573235
+      spriteID: ba79475bf7473a347a41f02b656615f2
+      internalID: -1849375331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: espuma_29
+      name: jugar_5
       rect:
         serializedVersion: 2
-        x: 2878
+        x: 3245
         y: 0
-        width: 703
-        height: 488
+        width: 649
+        height: 593
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83b82eb2c152ea246b843780b37639cc
-      internalID: -1635121567
+      spriteID: c12cf6f18870ead41a7aa02ec6d8fa25
+      internalID: -1105530019
       vertices: []
       indices: 
       edges: []
@@ -246,36 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      espuma_0: -1087364323
-      espuma_1: -2026121715
-      espuma_10: 1710085921
-      espuma_11: -1783224429
-      espuma_12: -1809401035
-      espuma_13: -937321470
-      espuma_14: -673038620
-      espuma_15: -1323540809
-      espuma_16: 1079895580
-      espuma_17: 539470553
-      espuma_18: 1987129377
-      espuma_19: -9327410
-      espuma_2: -2107547744
-      espuma_20: -1892271520
-      espuma_21: -1205389723
-      espuma_22: -1589779181
-      espuma_23: -1106474462
-      espuma_24: -1546765608
-      espuma_25: -1237976311
-      espuma_26: 761368623
-      espuma_27: 1750019327
-      espuma_28: -494573235
-      espuma_29: -1635121567
-      espuma_3: -1869710787
-      espuma_4: -562505302
-      espuma_5: 978109910
-      espuma_6: -1622773447
-      espuma_7: -400490917
-      espuma_8: 1910685692
-      espuma_9: -1317297601
+      jugar_0: 2052052274
+      jugar_1: 109086718
+      jugar_2: -1635695934
+      jugar_3: -611764375
+      jugar_4: -1849375331
+      jugar_5: -1105530019
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
