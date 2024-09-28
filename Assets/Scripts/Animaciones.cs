@@ -9,13 +9,7 @@ public class Animaciones : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator.SetBool("Alimentar", false);
-        animator.SetBool("Dormir", false);
-        animator.SetBool("Bañar", false);
-        animator.SetBool("Jugar", false);
-        animator.SetBool("Alimentar2", false);
-        animator.SetBool("Bañar2", false);
-        animator.SetBool("Jugar2", false);
+        Reset();
     }
 
     public void Animar(float aux)
@@ -25,11 +19,8 @@ public class Animaciones : MonoBehaviour
         switch (aux)
         {
             case 1:
-                animator.SetBool("Alimentar", false);
-                animator.SetBool("Dormir", false);
-                animator.SetBool("Jugar", false);
-                animator.SetBool("Alimentar2", false);
-                animator.SetBool("Jugar2", false);
+                //BAÑAR
+                Reset();
                 if(num<=2f)
                 {
                     animator.SetBool("Bañar", true);
@@ -43,11 +34,8 @@ public class Animaciones : MonoBehaviour
                 
                 break;
             case 2:
-                animator.SetBool("Dormir", false);
-                animator.SetBool("Jugar", false);
-                animator.SetBool("Jugar2", false);
-                animator.SetBool("Bañar", false);
-                animator.SetBool("Bañar2", false);
+                //COMER
+                Reset();
                 if(num<=2f)
                 {
                     animator.SetBool("Alimentar", true);
@@ -60,17 +48,13 @@ public class Animaciones : MonoBehaviour
                 }
                 break;
             case 3:
-                animator.SetBool("Alimentar", false);
+                //DORMIR
+                Reset();
                 animator.SetBool("Dormir", true);
-                animator.SetBool("Jugar", false);
-                animator.SetBool("Bañar", false);
                 break;
             case 4:
-                animator.SetBool("Alimentar", false);
-                animator.SetBool("Dormir", false);
-                animator.SetBool("Bañar", false);
-                animator.SetBool("Bañar2", false);
-                animator.SetBool("Alimentar2", false);
+                //JUEGOS
+                Reset();
                 if(num<=2f)
                 {
                     animator.SetBool("Jugar", true);
@@ -83,7 +67,20 @@ public class Animaciones : MonoBehaviour
                 }
                 break;
             case 5:
+                //DESPERTAR
                 animator.SetBool("Dormir", false);
+                break;
+            case 6:
+                //NEGAR
+                Reset();
+                animator.SetBool("negar", true);
+                StartCoroutine(Esperar("negar"));
+                break;
+            case 7:
+                //HABLAR
+                Reset();
+                animator.SetBool("hablando", true);
+                StartCoroutine(Esperar("hablando"));
                 break;
         }
 
@@ -92,12 +89,20 @@ public class Animaciones : MonoBehaviour
     public void Reset()
     {
         animator.SetBool("Alimentar", false);
-        animator.SetBool("Alimentar2", false);
         animator.SetBool("Dormir", false);
-        animator.SetBool("Jugar", false);
-        animator.SetBool("Jugar2", false);
         animator.SetBool("Bañar", false);
+        animator.SetBool("Jugar", false);
+        animator.SetBool("Alimentar2", false);
         animator.SetBool("Bañar2", false);
+        animator.SetBool("Jugar2", false);
+        animator.SetBool("hablando", false);
+        animator.SetBool("negar", false);
+    }
+
+    IEnumerator Esperar(string nombre)
+    {
+        yield return new WaitForSeconds(3f);
+        animator.SetBool(nombre, false);
     }
 
 }

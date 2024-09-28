@@ -37,7 +37,7 @@ public class VoiceDetection : MonoBehaviour
         if (GameObject.Find("baño") == null)
         {
             WindowsVoice.speak("soy otaku bro (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧");
-
+            GetComponent<Animaciones>().Animar(6);
         }
         else
         {
@@ -55,6 +55,7 @@ public class VoiceDetection : MonoBehaviour
         if (GameObject.Find("cocina cosas") == null)
         {
             WindowsVoice.speak("No puedo comer en este sitio (✧ω✧)");
+            GetComponent<Animaciones>().Animar(6);
         }
         else
         {
@@ -72,6 +73,7 @@ public class VoiceDetection : MonoBehaviour
         if (GameObject.Find("habitacion paravideos") == null)
         {
             WindowsVoice.speak("No quiero dormir ahi (._. )/");
+            GetComponent<Animaciones>().Animar(6);
         }
         else
         {
@@ -88,6 +90,7 @@ public class VoiceDetection : MonoBehaviour
         if (GameObject.Find("habitacion paravideos") == null)
         {
             WindowsVoice.speak("NO NO NO Jugar (╯°□°）╯︵ ┻━┻");
+            GetComponent<Animaciones>().Animar(6);
         }
         else
         {
@@ -105,6 +108,7 @@ public class VoiceDetection : MonoBehaviour
         if (GameObject.Find("habitacion paravideos") == null)
         {
             WindowsVoice.speak("no estoy dormido (≧◡≦) uwu");
+            GetComponent<Animaciones>().Animar(6);
         }
         else
         {
@@ -118,5 +122,6 @@ public class VoiceDetection : MonoBehaviour
     private void Hola()
     {
         WindowsVoice.speak("Hello papus, aiam Mimitchi");
+        GetComponent<Animaciones>().Animar(7);
     }
 }
