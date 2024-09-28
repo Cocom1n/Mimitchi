@@ -10,7 +10,7 @@ public class Feeding : MonoBehaviour
     private float cantAlimento;
     void Start()
     {
-        tiempo = 5f;
+        tiempo = 2f;
         cantAlimento = 100f;
     }
 
@@ -23,10 +23,10 @@ public class Feeding : MonoBehaviour
         }
         if (tiempo <= 0)
         {
-            tiempo = 5f;
+            tiempo = 2f;
             if (cantAlimento > 0)
             {
-                cantAlimento -= 10f;
+                cantAlimento -= 1f;
             }
         }
     }
@@ -35,7 +35,7 @@ public class Feeding : MonoBehaviour
     {
         if (cantAlimento < 100 && cantAlimento > 90)
         {
-            cantAlimento = 100;
+            cantAlimento = 100f;
         }
         if (cantAlimento <= 90)
         {
@@ -46,5 +46,17 @@ public class Feeding : MonoBehaviour
     public float GetCantAlimento()
     {
         return cantAlimento;
+    }
+
+    public void RestarAlimento(float alimento)
+    {
+        if (cantAlimento < 5 && cantAlimento > 0)
+        {
+            cantAlimento = 0;
+        }
+        if (cantAlimento >= 5)
+        {
+            cantAlimento -= alimento;
+        }
     }
 }

@@ -11,7 +11,7 @@ public class Cleaning : MonoBehaviour
     private float cantAseo;
     void Start()
     {
-        tiempo = 5f;
+        tiempo = 2f;
         cantAseo = 100f;
     }
 
@@ -24,10 +24,10 @@ public class Cleaning : MonoBehaviour
         }
         if (tiempo <= 0)
         {
-            tiempo = 5f;
+            tiempo = 2f;
             if (cantAseo > 0)
             {
-                cantAseo -= 10f;
+                cantAseo -= 1f;
             }
         }
     }
@@ -36,7 +36,7 @@ public class Cleaning : MonoBehaviour
     {
         if (cantAseo < 100 && cantAseo > 90)
         {
-            cantAseo = 100;
+            cantAseo = 100f;
         }
         if (cantAseo <= 90)
         {
@@ -47,5 +47,17 @@ public class Cleaning : MonoBehaviour
     public float GetCantAseo()
     {
         return cantAseo;
+    }
+
+    public void RestarAseo(float aseo)
+    {
+        if (cantAseo < 5 && cantAseo > 0)
+        {
+            cantAseo = 0;
+        }
+        if (cantAseo >= 5)
+        {
+            cantAseo -= aseo;
+        }
     }
 }
