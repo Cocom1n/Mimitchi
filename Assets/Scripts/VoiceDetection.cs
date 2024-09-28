@@ -16,6 +16,7 @@ public class VoiceDetection : MonoBehaviour
         keywords.Add("Dormir", Dormir);
         keywords.Add("Jugar", Jugar);
         keywords.Add("Despertar", Despertar);
+        keywords.Add("Hola", Hola);
 
         keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += KeywordRecognizer_OnPhraseRecognized;
@@ -25,7 +26,7 @@ public class VoiceDetection : MonoBehaviour
     private void KeywordRecognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
     {
         System.Action keywordAction;
-        // if the keyword recognized is in our dictionary, call that Action.
+        
         if (keywords.TryGetValue(args.text, out keywordAction))
         {
             keywordAction.Invoke();
@@ -35,13 +36,16 @@ public class VoiceDetection : MonoBehaviour
     {
         if (GameObject.Find("baño") == null)
         {
-            Debug.Log("es otaku bro (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧");
+            WindowsVoice.speak("soy otaku bro (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧");
+
         }
         else
         {
             GetComponent<Animaciones>().Animar(1);
             Debug.Log("Se baña");
-            GetComponent<Cleaning>().AseoMimitchi(10);
+            GetComponent<Cleaning>().AseoMimitchi(20);
+            GetComponent<Sleeping>().RestarSueño(5);
+            GetComponent<Feeding>().RestarAlimento(5);
         }
 
     }
@@ -50,13 +54,15 @@ public class VoiceDetection : MonoBehaviour
     {
         if (GameObject.Find("cocina cosas") == null)
         {
-            Debug.Log("No puede comer en este sitio (✧ω✧)");
+            WindowsVoice.speak("No puedo comer en este sitio (✧ω✧)");
         }
         else
         {
             GetComponent<Animaciones>().Animar(2);
             Debug.Log("Come");
-            GetComponent<Feeding>().AlimentarMimitchi(10);
+            GetComponent<Feeding>().AlimentarMimitchi(20);
+            GetComponent<Sleeping>().RestarSueño(5);
+            GetComponent<Cleaning>().RestarAseo(5);
         }
 
     }
@@ -65,13 +71,14 @@ public class VoiceDetection : MonoBehaviour
     {
         if (GameObject.Find("habitacion paravideos") == null)
         {
-            Debug.Log("No quiere dormir ahi (._. )/");
+            WindowsVoice.speak("No quiero dormir ahi (._. )/");
         }
         else
         {
             GetComponent<Animaciones>().Animar(3);
             Debug.Log("Duerme");
-            GetComponent<Sleeping>().DescansarMimitchi(10);
+            GetComponent<Sleeping>().Duerme(true);
+            GetComponent<Feeding>().RestarAlimento(5);
         }
 
     }
@@ -80,12 +87,15 @@ public class VoiceDetection : MonoBehaviour
     {
         if (GameObject.Find("habitacion paravideos") == null)
         {
-            Debug.Log("NO NO NO Jugar (╯°□°）╯︵ ┻━┻");
+            WindowsVoice.speak("NO NO NO Jugar (╯°□°）╯︵ ┻━┻");
         }
         else
         {
             GetComponent<Animaciones>().Animar(4);
             Debug.Log("Juega");
+            GetComponent<Sleeping>().RestarSueño(5);
+            GetComponent<Feeding>().RestarAlimento(5);
+            GetComponent<Cleaning>().RestarAseo(5);
         }
 
     }
@@ -94,13 +104,19 @@ public class VoiceDetection : MonoBehaviour
     {
         if (GameObject.Find("habitacion paravideos") == null)
         {
-            Debug.Log("no esta dormido (≧◡≦)");
+            WindowsVoice.speak("no estoy dormido (≧◡≦) uwu");
         }
         else
         {
             GetComponent<Animaciones>().Animar(5);
             Debug.Log("Se despierta");
+            GetComponent<Sleeping>().Duerme(false);
         }
 
+    }
+
+    private void Hola()
+    {
+        WindowsVoice.speak("Hello papus, aiam Mimitchi");
     }
 }

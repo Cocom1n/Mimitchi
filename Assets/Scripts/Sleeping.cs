@@ -8,13 +8,14 @@ public class Sleeping : MonoBehaviour
     private float tiempo;
     [SerializeField] private Image barraSueño;
     private float cantSueño;
+    private bool duerme;
     void Start()
     {
-        tiempo = 5f;
+        tiempo = 2f;
         cantSueño = 100f;
+        duerme = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         barraSueño.fillAmount = cantSueño / 100;
@@ -24,28 +25,42 @@ public class Sleeping : MonoBehaviour
         }
         if (tiempo <= 0)
         {
-            tiempo = 5f;
-            if (cantSueño > 0)
+            tiempo = 2f;
+            if (cantSueño > 0 && duerme == false)
             {
-                cantSueño -= 10f;
+                cantSueño -= 1f;
             }
         }
-    }
-
-    public void DescansarMimitchi(float dormir)
-    {
-        if (cantSueño < 100 && cantSueño > 90)
+        if (duerme == true && cantSueño < 100)
         {
-            cantSueño = 100;
-        }
-        if (cantSueño <= 90)
-        {
-            cantSueño += dormir;
+            cantSueño = cantSueño + Time.deltaTime;
         }
     }
 
     public float GetCantSueño()
     {
         return cantSueño;
+    }
+
+    public void RestarSueño(float sueño)
+    {
+        if (cantSueño < 5 && cantSueño > 0)
+        {
+            cantSueño = 0;
+        }
+        if (cantSueño >= 5)
+        {
+            cantSueño -= sueño;
+        }
+    }
+
+    public void Duerme(bool dormir)
+    {
+        duerme = dormir;
+    }
+
+    public bool GetSueño()
+    {
+        return duerme;
     }
 }
