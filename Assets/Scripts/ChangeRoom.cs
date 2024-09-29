@@ -28,5 +28,6 @@ public class ChangeRoom : MonoBehaviour
     public void ActualizarFondo(){
         fondos[indice].SetActive(true);
         anim.Reset();
+        GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
     }
 }

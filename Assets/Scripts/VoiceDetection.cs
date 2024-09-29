@@ -38,6 +38,7 @@ public class VoiceDetection : MonoBehaviour
         {
             WindowsVoice.speak("soy otaku bro (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧");
             GetComponent<Animaciones>().Animar(6);
+            GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
         }
         else
         {
@@ -56,6 +57,7 @@ public class VoiceDetection : MonoBehaviour
         {
             WindowsVoice.speak("No puedo comer en este sitio (✧ω✧)");
             GetComponent<Animaciones>().Animar(6);
+            GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
         }
         else
         {
@@ -78,6 +80,7 @@ public class VoiceDetection : MonoBehaviour
         else
         {
             GetComponent<Animaciones>().Animar(3);
+            GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
             Debug.Log("Duerme");
             GetComponent<Sleeping>().Duerme(true);
             GetComponent<Feeding>().RestarAlimento(5);
@@ -96,6 +99,7 @@ public class VoiceDetection : MonoBehaviour
         {
             GetComponent<Animaciones>().Animar(4);
             Debug.Log("Juega");
+            GameObject.Find("TV").GetComponent<TvController>().EncenderTv();
             GetComponent<Sleeping>().RestarSueño(5);
             GetComponent<Feeding>().RestarAlimento(5);
             GetComponent<Cleaning>().RestarAseo(5);
@@ -109,6 +113,7 @@ public class VoiceDetection : MonoBehaviour
         {
             WindowsVoice.speak("no estoy dormido (≧◡≦) uwu");
             GetComponent<Animaciones>().Animar(6);
+            GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
         }
         else
         {
@@ -123,5 +128,6 @@ public class VoiceDetection : MonoBehaviour
     {
         WindowsVoice.speak("Hello papus, aiam Mimitchi");
         GetComponent<Animaciones>().Animar(7);
+        GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
     }
 }

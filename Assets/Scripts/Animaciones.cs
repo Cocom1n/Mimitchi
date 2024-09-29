@@ -59,11 +59,13 @@ public class Animaciones : MonoBehaviour
                 {
                     animator.SetBool("Jugar", true);
                     animator.SetBool("Jugar2", false);
+                    StartCoroutine(Esperar("Jugar", 5f));
                 }
                 if(num>2f)
                 {
                     animator.SetBool("Jugar", false);
                     animator.SetBool("Jugar2", true);
+                    StartCoroutine(Esperar("Jugar2", 5f));
                 }
                 break;
             case 5:
@@ -74,13 +76,13 @@ public class Animaciones : MonoBehaviour
                 //NEGAR
                 Reset();
                 animator.SetBool("negar", true);
-                StartCoroutine(Esperar("negar"));
+                StartCoroutine(Esperar("negar",3f));
                 break;
             case 7:
                 //HABLAR
                 Reset();
                 animator.SetBool("hablando", true);
-                StartCoroutine(Esperar("hablando"));
+                StartCoroutine(Esperar("hablando",3f));
                 break;
         }
 
@@ -99,9 +101,9 @@ public class Animaciones : MonoBehaviour
         animator.SetBool("negar", false);
     }
 
-    IEnumerator Esperar(string nombre)
+    IEnumerator Esperar(string nombre, float tiempo)
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(tiempo);
         animator.SetBool(nombre, false);
     }
 
