@@ -10,10 +10,12 @@ public class TvController : MonoBehaviour
     public VideoClip[] listaVideos;
 
     public SpriteRenderer pantallaTv;
+    [SerializeField] private bool encendido;
 
     void Start()
     {
         pantallaTv.color = Color.black;
+        encendido = false;
     }
     public void EncenderTv()
     {
@@ -21,8 +23,8 @@ public class TvController : MonoBehaviour
         int i = Random.Range(0, listaVideos.Length);
         videoPlayer.clip = listaVideos[i];
         videoPlayer.Play();
+        encendido = true;
         StartCoroutine(TemporizadorTv(5f));
-        
     }
 
     private IEnumerator TemporizadorTv(float tiempo)
@@ -30,6 +32,7 @@ public class TvController : MonoBehaviour
         yield return new WaitForSeconds(tiempo);
         videoPlayer.Stop();
         pantallaTv.color = Color.black;
+        encendido = false;
     }
 
     public void ApagarTv()
@@ -39,6 +42,11 @@ public class TvController : MonoBehaviour
             videoPlayer.Stop();
             pantallaTv.color = Color.black;
         }
+    }
+
+    public bool GetEncendido()
+    {
+        return encendido;
     }
 
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
 
@@ -9,6 +10,7 @@ public class VoiceDetection : MonoBehaviour
 {
     KeywordRecognizer keywordRecognizer;
     Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
+    private bool parte2;
     void Start()
     {
         keywords.Add("Bañar", Bañar);
@@ -16,11 +18,17 @@ public class VoiceDetection : MonoBehaviour
         keywords.Add("Dormir", Dormir);
         keywords.Add("Jugar", Jugar);
         keywords.Add("Despertar", Despertar);
-        keywords.Add("Hola", Hola);
+        keywords.Add("Hola", Saludar);
+        keywords.Add("Tienes pareja", ContarChisteJoa);
+        keywords.Add("En que Nacion", ContarChisteJoa2);
+        keywords.Add("Contame algo", ContarChisteCarlos);
+        keywords.Add("Miau", ContarCande);
 
         keywordRecognizer = new KeywordRecognizer(keywords.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += KeywordRecognizer_OnPhraseRecognized;
         keywordRecognizer.Start();
+
+        parte2 = false;
     }
 
     private void KeywordRecognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
@@ -36,7 +44,7 @@ public class VoiceDetection : MonoBehaviour
     {
         if (GameObject.Find("baño") == null && GetComponent<Sleeping>().GetDormir() == false)
         {
-            WindowsVoice.speak("soy otaku bro (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧");
+            WindowsVoice.speak("soy otaku bro");
             GetComponent<Animaciones>().Animar(6);
             GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
         }
@@ -55,7 +63,7 @@ public class VoiceDetection : MonoBehaviour
     {
         if (GameObject.Find("cocina cosas") == null && GetComponent<Sleeping>().GetDormir() == false)
         {
-            WindowsVoice.speak("No puedo comer en este sitio (✧ω✧)");
+            WindowsVoice.speak("No puedo comer en este sitio");
             GetComponent<Animaciones>().Animar(6);
             GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
         }
@@ -74,7 +82,7 @@ public class VoiceDetection : MonoBehaviour
     {
         if (GameObject.Find("habitacion paravideos") == null && GetComponent<Sleeping>().GetDormir() == false)
         {
-            WindowsVoice.speak("No quiero dormir aki (._. )/");
+            WindowsVoice.speak("No quiero dormir aki");
             GetComponent<Animaciones>().Animar(6);
         }
         else if (GameObject.Find("habitacion paravideos") != null)
@@ -92,10 +100,10 @@ public class VoiceDetection : MonoBehaviour
     {
         if (GameObject.Find("habitacion paravideos") == null && GetComponent<Sleeping>().GetDormir() == false)
         {
-            WindowsVoice.speak("NO NO NO Jugar (╯°□°）╯︵ ┻━┻");
+            WindowsVoice.speak("NO NO NO Jugar");
             GetComponent<Animaciones>().Animar(6);
         }
-        else if(GameObject.Find("habitacion paravideos") != null && GetComponent<Sleeping>().GetDormir() == false)
+        else if(GameObject.Find("habitacion paravideos") != null && GetComponent<Sleeping>().GetDormir() == false && GameObject.Find("TV").GetComponent<TvController>().GetEncendido() == false)
         {
             GetComponent<Animaciones>().Animar(4);
             Debug.Log("Juega");
@@ -111,7 +119,7 @@ public class VoiceDetection : MonoBehaviour
     {
         if (GameObject.Find("habitacion paravideos") == null && GetComponent<Sleeping>().GetDormir() == false)
         {
-            WindowsVoice.speak("no estoy dormido (≧◡≦) uwu");
+            WindowsVoice.speak("no estoy dormido");
             GetComponent<Animaciones>().Animar(6);
             GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
         }
@@ -124,7 +132,7 @@ public class VoiceDetection : MonoBehaviour
 
     }
 
-    private void Hola()
+    private void Saludar()
     {
         if (GetComponent<Sleeping>().GetDormir() == false)
         {
@@ -133,5 +141,47 @@ public class VoiceDetection : MonoBehaviour
             GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
         }
 
+    }
+
+    private void ContarChisteJoa()
+    {
+        if (GetComponent<Sleeping>().GetDormir() == false && parte2==false)
+        {
+            WindowsVoice.speak("Si, pero vive en otra Nacion");
+            parte2 = true;
+            GetComponent<Animaciones>().Animar(7);
+            GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
+        }
+    }
+
+    private void ContarChisteJoa2()
+    {
+        if (GetComponent<Sleeping>().GetDormir() == false && parte2 == true)
+        {
+            WindowsVoice.speak("En mi imaginacion :(");
+            parte2 = false;
+            GetComponent<Animaciones>().Animar(7);
+            GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
+        }
+    }
+
+    private void ContarChisteCarlos()
+    {
+        if (GetComponent<Sleeping>().GetDormir() == false)
+        {
+            WindowsVoice.speak("Cual es el animal que a la vez son 2 animales? ... El gato porque es gato y araña jaja");
+            GetComponent<Animaciones>().Animar(7);
+            GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
+        }
+    }
+
+    private void ContarCande()
+    {
+        if (GetComponent<Sleeping>().GetDormir() == false)
+        {
+            WindowsVoice.speak("Miau");
+            GetComponent<Animaciones>().Animar(7);
+            GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
+        }
     }
 }

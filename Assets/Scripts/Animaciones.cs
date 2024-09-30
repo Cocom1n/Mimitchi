@@ -25,11 +25,13 @@ public class Animaciones : MonoBehaviour
                 {
                     animator.SetBool("Bañar", true);
                     animator.SetBool("Bañar2", false);
+                    StartCoroutine(Esperar("Bañar", 3f));
                 }
                 if(num>2f)
                 {
                     animator.SetBool("Bañar", false);
                     animator.SetBool("Bañar2", true);
+                    StartCoroutine(Esperar("Bañar2", 3f));
                 }
                 
                 break;
@@ -40,11 +42,13 @@ public class Animaciones : MonoBehaviour
                 {
                     animator.SetBool("Alimentar", true);
                     animator.SetBool("Alimentar2", false);
+                    StartCoroutine(Esperar("Alimentar", 3f));
                 }
                 if(num>2f)
                 {
                     animator.SetBool("Alimentar", false);
                     animator.SetBool("Alimentar2", true);
+                    StartCoroutine(Esperar("Alimentar2", 3f));
                 }
                 break;
             case 3:
