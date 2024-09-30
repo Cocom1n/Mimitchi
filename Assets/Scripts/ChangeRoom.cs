@@ -12,17 +12,21 @@ public class ChangeRoom : MonoBehaviour
         ActualizarFondo();
     }
     public void NextRoom(){
-        fondos[indice].SetActive(false);
-        indice = (indice + 1) % fondos.Count;
-        ActualizarFondo();
-       
+        if (GameObject.Find("Mimitchi").GetComponent<Sleeping>().GetDormir() == false)
+        {
+            fondos[indice].SetActive(false);
+            indice = (indice + 1) % fondos.Count;
+            ActualizarFondo();
+        }
     }
 
     public void PreviousRoom(){
-        fondos[indice].SetActive(false);
-        indice = (indice - 1 + fondos.Count) % fondos.Count;
-        ActualizarFondo();
-       
+        if (GameObject.Find("Mimitchi").GetComponent<Sleeping>().GetDormir() == false)
+        {
+            fondos[indice].SetActive(false);
+            indice = (indice - 1 + fondos.Count) % fondos.Count;
+            ActualizarFondo();
+        }
     }
 
     public void ActualizarFondo(){

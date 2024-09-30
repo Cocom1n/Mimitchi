@@ -34,12 +34,12 @@ public class VoiceDetection : MonoBehaviour
     }
     private void Bañar()
     {
-        if (GameObject.Find("baño") == null)
+        if (GameObject.Find("baño") == null && GetComponent<Sleeping>().GetDormir() == false)
         {
             WindowsVoice.speak("soy otaku bro (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧");
 
         }
-        else
+        else if(GameObject.Find("baño") != null)
         {
             GetComponent<Animaciones>().Animar(1);
             Debug.Log("Se baña");
@@ -52,11 +52,11 @@ public class VoiceDetection : MonoBehaviour
 
     private void Comer()
     {
-        if (GameObject.Find("cocina cosas") == null)
+        if (GameObject.Find("cocina cosas") == null && GetComponent<Sleeping>().GetDormir() == false)
         {
             WindowsVoice.speak("No puedo comer en este sitio (✧ω✧)");
         }
-        else
+        else if(GameObject.Find("cocina cosas") != null)
         {
             GetComponent<Animaciones>().Animar(2);
             Debug.Log("Come");
@@ -69,15 +69,15 @@ public class VoiceDetection : MonoBehaviour
 
     private void Dormir()
     {
-        if (GameObject.Find("habitacion paravideos") == null)
+        if (GameObject.Find("habitacion paravideos") == null && GetComponent<Sleeping>().GetDormir() == false)
         {
-            WindowsVoice.speak("No quiero dormir ahi (._. )/");
+            WindowsVoice.speak("No quiero dormir aki (._. )/");
         }
-        else
+        else if (GameObject.Find("habitacion paravideos") != null)
         {
             GetComponent<Animaciones>().Animar(3);
             Debug.Log("Duerme");
-            GetComponent<Sleeping>().Duerme(true);
+            GetComponent<Sleeping>().Dormir(true);
             GetComponent<Feeding>().RestarAlimento(5);
         }
 
@@ -85,11 +85,11 @@ public class VoiceDetection : MonoBehaviour
 
     private void Jugar()
     {
-        if (GameObject.Find("habitacion paravideos") == null)
+        if (GameObject.Find("habitacion paravideos") == null && GetComponent<Sleeping>().GetDormir() == false)
         {
             WindowsVoice.speak("NO NO NO Jugar (╯°□°）╯︵ ┻━┻");
         }
-        else
+        else if(GameObject.Find("habitacion paravideos") != null && GetComponent<Sleeping>().GetDormir() == false)
         {
             GetComponent<Animaciones>().Animar(4);
             Debug.Log("Juega");
@@ -102,21 +102,25 @@ public class VoiceDetection : MonoBehaviour
 
     private void Despertar()
     {
-        if (GameObject.Find("habitacion paravideos") == null)
+        if (GameObject.Find("habitacion paravideos") == null && GetComponent<Sleeping>().GetDormir() == false)
         {
             WindowsVoice.speak("no estoy dormido (≧◡≦) uwu");
         }
-        else
+        else if(GameObject.Find("habitacion paravideos") != null && GetComponent<Sleeping>().GetDormir() == true)
         {
             GetComponent<Animaciones>().Animar(5);
             Debug.Log("Se despierta");
-            GetComponent<Sleeping>().Duerme(false);
+            GetComponent<Sleeping>().Dormir(false);
         }
 
     }
 
     private void Hola()
     {
-        WindowsVoice.speak("Hello papus, aiam Mimitchi");
+        if (GetComponent<Sleeping>().GetDormir() == false)
+        {
+            WindowsVoice.speak("Hello papus, aiam Mimitchi");
+        }
+
     }
 }

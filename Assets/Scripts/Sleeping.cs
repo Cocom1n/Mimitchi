@@ -8,7 +8,7 @@ public class Sleeping : MonoBehaviour
     private float tiempo;
     [SerializeField] private Image barraSueño;
     private float cantSueño;
-    private bool duerme;
+    [SerializeField] private bool duerme;
     void Start()
     {
         tiempo = 2f;
@@ -33,7 +33,7 @@ public class Sleeping : MonoBehaviour
         }
         if (duerme == true && cantSueño < 100)
         {
-            cantSueño = cantSueño + Time.deltaTime;
+            cantSueño = cantSueño + Time.deltaTime*2;
         }
     }
 
@@ -54,12 +54,12 @@ public class Sleeping : MonoBehaviour
         }
     }
 
-    public void Duerme(bool dormir)
+    public void Dormir(bool dormir)
     {
         duerme = dormir;
     }
 
-    public bool GetSueño()
+    public bool GetDormir()
     {
         return duerme;
     }
