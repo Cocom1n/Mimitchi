@@ -88,7 +88,6 @@ public class VoiceDetection : MonoBehaviour
             GetComponent<Animaciones>().Animar(3);
             GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
             GetComponent<Sleeping>().Dormir(true);
-            GetComponent<Feeding>().RestarAlimento(5);
         }
 
     }
