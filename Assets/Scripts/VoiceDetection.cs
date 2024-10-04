@@ -51,7 +51,6 @@ public class VoiceDetection : MonoBehaviour
         else if(GameObject.Find("baño") != null)
         {
             GetComponent<Animaciones>().Animar(1);
-            Debug.Log("Se baña");
             GetComponent<Cleaning>().AseoMimitchi(20);
             GetComponent<Sleeping>().RestarSueño(5);
             GetComponent<Feeding>().RestarAlimento(5);
@@ -70,7 +69,6 @@ public class VoiceDetection : MonoBehaviour
         else if(GameObject.Find("cocina cosas") != null)
         {
             GetComponent<Animaciones>().Animar(2);
-            Debug.Log("Come");
             GetComponent<Feeding>().AlimentarMimitchi(20);
             GetComponent<Sleeping>().RestarSueño(5);
             GetComponent<Cleaning>().RestarAseo(5);
@@ -89,7 +87,6 @@ public class VoiceDetection : MonoBehaviour
         {
             GetComponent<Animaciones>().Animar(3);
             GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
-            Debug.Log("Duerme");
             GetComponent<Sleeping>().Dormir(true);
             GetComponent<Feeding>().RestarAlimento(5);
         }
@@ -106,7 +103,6 @@ public class VoiceDetection : MonoBehaviour
         else if(GameObject.Find("habitacion paravideos") != null && GetComponent<Sleeping>().GetDormir() == false && GameObject.Find("TV").GetComponent<TvController>().GetEncendido() == false)
         {
             GetComponent<Animaciones>().Animar(4);
-            Debug.Log("Juega");
             GameObject.Find("TV").GetComponent<TvController>().EncenderTv();
             GetComponent<Sleeping>().RestarSueño(5);
             GetComponent<Feeding>().RestarAlimento(5);
@@ -126,7 +122,6 @@ public class VoiceDetection : MonoBehaviour
         else if(GameObject.Find("habitacion paravideos") != null && GetComponent<Sleeping>().GetDormir() == true)
         {
             GetComponent<Animaciones>().Animar(5);
-            Debug.Log("Se despierta");
             GetComponent<Sleeping>().Dormir(false);
         }
 
@@ -169,7 +164,7 @@ public class VoiceDetection : MonoBehaviour
     {
         if (GetComponent<Sleeping>().GetDormir() == false)
         {
-            WindowsVoice.speak("Cual es el animal que a la vez son 2 animales? ... El gato porque es gato y araña jaja");
+            WindowsVoice.speak("Mi cumpleaños es el 9 de Septiembre papus");
             GetComponent<Animaciones>().Animar(7);
             GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
         }

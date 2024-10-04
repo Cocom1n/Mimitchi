@@ -17,7 +17,6 @@ public class Animaciones : MonoBehaviour
     public void Animar(float aux)
     {
         num=Random. Range(1f,3f);
-        Debug.Log(num);
         switch (aux)
         {
             case 1:
