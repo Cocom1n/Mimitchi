@@ -5,6 +5,8 @@ using UnityEngine;
 public class Animaciones : MonoBehaviour
 {
     public Animator animator;
+    public Animator cielo;
+    public GameObject oscuridad;
     private float num;
     // Start is called before the first frame update
     void Start()
@@ -55,6 +57,8 @@ public class Animaciones : MonoBehaviour
                 //DORMIR
                 Reset();
                 animator.SetBool("Dormir", true);
+                cielo.SetBool("EstaDurmiendo", true);
+                oscuridad.SetActive(true);
                 break;
             case 4:
                 //JUEGOS
@@ -75,6 +79,8 @@ public class Animaciones : MonoBehaviour
             case 5:
                 //DESPERTAR
                 animator.SetBool("Dormir", false);
+                cielo.SetBool("EstaDurmiendo", false);
+                oscuridad.SetActive(false);
                 break;
             case 6:
                 //NEGAR
@@ -103,6 +109,8 @@ public class Animaciones : MonoBehaviour
         animator.SetBool("Jugar2", false);
         animator.SetBool("hablando", false);
         animator.SetBool("negar", false);
+        cielo.SetBool("EstaDurmiendo", false);
+        oscuridad.SetActive(false);
     }
 
     IEnumerator Esperar(string nombre, float tiempo)
