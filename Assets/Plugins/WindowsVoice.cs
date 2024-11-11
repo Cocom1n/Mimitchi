@@ -80,9 +80,7 @@ public class WindowsVoice : MonoBehaviour {
   {
     if (theVoice == this)
     {
-      Debug.Log("Destroying speech");
       destroySpeech();
-      Debug.Log("Speech destroyed");
       theVoice = null;
     }
   }
