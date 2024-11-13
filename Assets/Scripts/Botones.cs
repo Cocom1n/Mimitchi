@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Botones : MonoBehaviour
 {
-    public GameObject BotonDormir;
-    public GameObject BotonDespertar;
+    public RectTransform BotonDormir;
+    public RectTransform BotonDespertar;
+    private Vector2 posA;
+    private Vector2 posB;
+
+    private void Start()
+    {
+        posA = BotonDormir.anchoredPosition;
+        posB = BotonDespertar.anchoredPosition;
+    }
     public void AlimentarB()
     {
         if (GameObject.Find("cocina cosas") == null && GetComponent<Sleeping>().GetDormir() == false)
@@ -54,8 +63,10 @@ public class Botones : MonoBehaviour
             GameObject.Find("TV").GetComponent<TvController>().ApagarTv();
             GetComponent<Sleeping>().Dormir(true);
             GetComponent<Feeding>().RestarAlimento(5);
-            BotonDespertar.SetActive(true);
-            BotonDormir.SetActive(false);
+            BotonDormir.anchoredPosition = posB;
+            BotonDespertar.anchoredPosition = posA;
+            //BotonDespertar.SetActive(true);
+            //BotonDormir.SetActive(false);
         }
     }
 
@@ -70,8 +81,8 @@ public class Botones : MonoBehaviour
         {
             GetComponent<Animaciones>().Animar(5);
             GetComponent<Sleeping>().Dormir(false);
-            BotonDespertar.SetActive(false);
-            BotonDormir.SetActive(true);
+            BotonDormir.anchoredPosition = posA;
+            BotonDespertar.anchoredPosition = posB;
         }
 
     }
